@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="In-browser code generator for Compose navigation boilerplate code.">
+    <title>Navi</title>
+    <script>
+      window.Prism = window.Prism || {};
+      window.Prism.manual = true;
+    </script>
+</head>
+<body>
+<main>
+
+    <section id="inputs">
+        <img src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white"
+             alt="Android"
+             height="28"
+             width="106.75">
+        <h1>Navi</h1>
+        <p>
+            Quickly generate boilerplate code for <a href="https://developer.android.com/jetpack/compose/navigation" rel="noopener">Compose navigation</a>.
+            This project is not affiliated with Android, Google, or JetBrains in any way.
+        </p>
+        <noscript>
+            <p>This page does not work without JavaScript.</p>
+        </noscript>
+
+        <form class="card">
+            <div>
+                <label>
+                    <span>Name:</span>
+                    <input type="text" value="HomeScreen" name="name" required>
+                </label>
+            </div>
+            <div>
+                <label>
+                    <span>Path:</span>
+                    <input type="text" value="home" name="path" required>
+                </label>
+            </div>
+            <!--
+            TODO
+            <div>
+                <label>
+                    <input type="checkbox" name="args_class">
+                    <span>Generate arguments class</span>
+                </label>
+            </div>
+            -->
+
+            <fieldset>
+                <legend>Arguments</legend>
+                <div id="arguments"></div>
+
+                <template id="argument-row">
+                    <div class="argument">
+                        <label>
+                            <span>Name:</span>
+                            <input type="text" value="" data-name="name" required>
+                        </label>
+                        <label>
+                            <span>Class:</span>
+                            <input type="text" value="" data-name="class" required>
+                        </label>
+                        <div class="argument-footer">
+                        <label class="inline">
+                            <input type="checkbox" data-name="asArray">
+                            <span>Is Iterable</span>
+                        </label>
+                        <label class="inline">
+                            <input type="checkbox" data-name="required">
+                            <span>Required</span>
+                        </label>
+
+                        <button type="button" class="secondary delete-argument-btn">Delete</button>
+                        </div>
+                        <hr/>
+                    </div>
+                </template>
+
+                <button type="button" id="add-argument-btn" class="primary">Add argument</button>
+            </fieldset>
+
+            <p>Navi tries to detect Lists and Arrays by class name. If you have some other iterable or detection doesn't
+                work, you can help out with the "Is Iterable" checkbox.</p>
+
+            <button id="copy-to-clipboard" class="primary">Copy code</button>
+        </form>
+
+        <h2>Who is this for?</h2>
+        <p>
+            This is for you, if you want to follow <a href="https://developer.android.com/jetpack/compose/navigation" rel="noopener">Google's Compose navigation guidelines</a>,
+            but find its boilerplate code rather annoying.
+            This generator does not lock you into another third-party navigation library (framework?), but rather adds to what is already there.
+        </p>
+        <p>
+            I've also written an <a href="https://github.com/JanMalch/navi" rel="noopener">experimental KSP plugin</a>, but I find it to inflexible.
+            Sometimes you just have one argument and so a dedicated class is a bit over the top.
+            Moreover, you still have code to write for deeplinks, the content, etc.
+            With this generator you are free to modify the generated code to your liking,
+            without dozens of KSP parameters.
+        </p>
+
+        <h2>About</h2>
+        <p>
+            Find the source code on <a href="https://github.com/JanMalch/navi-web" rel="noopener">github.com/JanMalch/navi-web</a>.
+        </p>
+    </section>
+
+    <section>
+        <pre><code class="language-kotlin"></code></pre>
+    </section>
+
+</main>
+
+<script type="module" src="/src/main.ts"></script>
+</body>
+</html>
