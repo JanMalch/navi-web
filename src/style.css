@@ -1,4 +1,5 @@
-:root, input {
+:root,
+input {
     font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-size: 1rem;
 }
@@ -16,7 +17,6 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
-    margin: 0;
 }
 
 *::-webkit-scrollbar {
@@ -33,20 +33,21 @@
     background: 0 0;
 }
 
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
 
 main {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
     width: 100%;
-    height: 100vh;
 }
 
 h1 {
     margin: 0.5rem 0;
+    font-size: 3.2em;
+    line-height: 1.1;
 }
-
-/* TODO: revisit below */
-
 
 a {
     font-weight: 500;
@@ -88,7 +89,7 @@ fieldset {
 legend {
     font-weight: 400;
     opacity: 0.7;
-    padding:0 0.5em;
+    padding: 0 0.5em;
 }
 
 label {
@@ -102,7 +103,7 @@ label.inline {
     display: inline-flex;
 }
 
-label > span {
+label>span {
     min-width: 3em;
 }
 
@@ -120,19 +121,6 @@ input[type=text]:focus {
     outline: 1px solid #3574f0;
 }
 
-body {
-    margin: 0;
-    display: flex;
-    place-items: center;
-    min-width: 320px;
-    height: 100vh;
-}
-
-h1 {
-    font-size: 3.2em;
-    line-height: 1.1;
-}
-
 section {
     min-width: 0;
     min-height: 0;
@@ -141,15 +129,32 @@ section {
 section#inputs {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 4rem 2rem;
+    padding: 2rem;
     width: 100%;
     box-sizing: border-box;
     overflow: auto;
-    height: 100%;
+}
+
+section#inputs >p:last-child {
+    margin-bottom: 0;
+}
+
+@media screen and (min-width: 840px) {
+    main {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        height: 100vh;
+    }
+
+    section#inputs {
+        padding: 4rem 2rem;
+        height: 100%;
+    }
 }
 
 section pre[class*="language-"] {
     margin: 0;
+    padding: 2rem;
     overflow: auto;
     height: 100%;
     box-sizing: border-box;
@@ -162,7 +167,7 @@ section pre[class*="language-"] {
     border: 1px solid #393b40;
 }
 
-.card > p:last-child {
+.card>p:last-child {
     margin-bottom: 0;
 }
 
